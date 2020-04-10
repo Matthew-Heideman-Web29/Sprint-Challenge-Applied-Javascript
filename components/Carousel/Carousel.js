@@ -22,8 +22,8 @@ function createCarousel(){
   const carouselParent = document.querySelector('.carousel-container');
   console.log(carouselParent)
   const container = document.createElement('div');
-  const leftButton = document.createElement('div');
-  const rightButton = document.createElement('div');
+  let leftButton = document.createElement('div');
+  let rightButton = document.createElement('div');
   const img = document.createElement('img');
   container.classList.add('carousel');
   leftButton.classList.add('left-button');
@@ -42,7 +42,7 @@ function createCarousel(){
   function leftButtonClick(){
     document.getElementsByTagName('img').styles.display = 'flex';
   }
-  leftButton.onclick(event) = function(){
+  leftButton.onclick = function(event){
    imgArr.forEach(img =>
     img.src = Math.Floor(Math.random(imgArr))
    )
