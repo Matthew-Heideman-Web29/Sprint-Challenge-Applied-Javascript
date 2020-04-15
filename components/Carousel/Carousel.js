@@ -24,28 +24,33 @@ function createCarousel(){
   const container = document.createElement('div');
   let leftButton = document.createElement('div');
   let rightButton = document.createElement('div');
-  const img = document.createElement('img');
+  let img = document.createElement('img');
   container.classList.add('carousel');
   leftButton.classList.add('left-button');
   rightButton.classList.add('right-button');
-  const imgArr = [
+  let imgArr = [
     './assets/carousel/mountains.jpeg',
     './assets/carousel/computer.jpeg',
     './assets/carousel/trees.jpeg',
     './assets/carousel/turntable.jpeg'
   ]
+  imgArr.forEach(item => {
+    img.src = item;
+  })
+  // container.appendChild(imgArr)
+  console.log(imgArr)
+  container.appendChild(img)
   container.appendChild(leftButton);
-  container.appendChild(img);
   container.appendChild(rightButton);
-  console.log(container);
+  
+
   carouselParent.appendChild(container);
-  function leftButtonClick(){
-    document.getElementsByTagName('img').styles.display = 'flex';
-  }
+  // function leftButtonClick(){
+  //   document.getElementsByTagName('img').styles.display = 'flex';
+  // }
   leftButton.onclick = function(event){
-   imgArr.forEach(img =>
-    img.src = Math.Floor(Math.random(imgArr))
-   )
+    console.log(event.target)
+    imgArr.copyWithin(3, 0)
   } 
 };
 
